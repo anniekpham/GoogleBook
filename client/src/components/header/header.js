@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-const Header = _ => {
+const Header = ({toggleSaved, toggleSearch}) => {
     return (
      <>
         <nav>
             <h3>Goggle Books</h3>
-            <Link to="/">Search</Link> 
-            <Link to="/Saved">Saved</Link> 
+            <Link to="/" onClick={toggleSearch}>Search</Link> 
+            <Link to="/Saved" onClick={toggleSaved}>Saved</Link> 
         </nav>
      </>
     )

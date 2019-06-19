@@ -2,11 +2,13 @@ import React, {Component} from 'react'
 import Searchbar from '../../components/searchbar'
 import Book from '../../components/books'
 import Axios from 'axios'
+import Books from '../../utils'
 
 class Search extends Component {
     state ={
         search: '',
-        books: []
+        books: [],
+        isSaved: this.props.isSaved
     }
 
     handleInputChange= e => {
@@ -18,29 +20,33 @@ class Search extends Component {
         Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.search}&download=epub&key=${process.env.REACT_APP_KEY}`)
         .then(({data: {items}}) => {
             let books = []
-            items.forEach(item => {
+            items.forEach((item) => {
                     let bookssearch = {
                         title: item.volumeInfo.title,
                         authors: item.volumeInfo.authors,
                         description: item.volumeInfo.description,
                         image: item.volumeInfo.imageLinks.thumbnail,
-                        link: item.volumeInfo.infoLink
+                        link: item.volumeInfo.infoLink,
+                        id: items.indexOf(item)
                     }
                     books.push(bookssearch)
             })
             this.setState({ 
                 search: '',
                 books
-            }, _ => console.log(this.state))
+            })
         })
         .catch(e => console.log(e))
     }
 
+    handlesave = e => {
+        Books.postOne(this.state.books[e.target.id])
+    }
     render () {
         return (
             <>
                 <Searchbar search={this.state.search} handleInputChange={this.handleInputChange} handleSubmit={this.handleSubmit} />
-                <Book books={this.state.books} />
+                <Book books={this.state.books} handlesave={this.handlesave} isSaved={this.state.isSaved}/>
             </>
         )
     }
