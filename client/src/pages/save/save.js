@@ -22,7 +22,7 @@ class Saved extends Component {
                 }
                 books.push(bookssearch)
             })
-            this.setState({ books })
+            this.setState({ books, isSaved: true })
         })
         .catch(e => console.log(e))
     }

@@ -1,0 +1,35 @@
+.headerbtn {
+    background-color: transparent !important;
+    border: none !important;
+    font-size: 20px !important;
+    margin-top: 2%;
+}
+
+.jumbo {
+    background-color: black !important;
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -ms-border-radius: 0 !important;
+    -o-border-radius: 0 !important;
+}
+
+h1 {
+    color: white !important; 
+}
+
+@media (min-width: 576px) {
+    .jumbo {
+        padding: 2rem !important;
+    }
+}
+
+.form-control {
+    display: inline !important;
+    width: 60% !important;
+}
+
+.searchbtn {
+    margin-bottom: .5%;
+    background-color: black !important;
+}

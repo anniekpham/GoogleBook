@@ -4,11 +4,17 @@ import Book from '../../components/books'
 import Axios from 'axios'
 import Books from '../../utils'
 
+
 class Search extends Component {
     state ={
         search: '',
         books: [],
-        isSaved: this.props.isSaved
+        isSaved: this.props.isSaved,
+        savedbook: false
+    }
+
+    componentDidMount() {
+        this.setState({isSaved: false})
     }
 
     handleInputChange= e => {
@@ -41,6 +47,7 @@ class Search extends Component {
 
     handlesave = e => {
         Books.postOne(this.state.books[e.target.id])
+        this.setState({savedbook: true})
     }
     render () {
         return (

@@ -1,0 +1,38 @@
+.bookbtn {
+    background-color: black !important;
+    border: none !important;
+    margin: 2% 1%;
+    color: white !important;
+}
+
+.links:active {
+    color: white;
+}
+.card-img-top {
+    width: 30% !important;   
+    height: 190px; 
+}
+
+.card {
+    display: block !important;
+    margin: 3%;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 20px;
+}
+
+.description {
+    height: 85px;
+    overflow: auto;
+    margin-top: 4%;
+}
+
+.container {
+    margin-bottom: 2%;
+}

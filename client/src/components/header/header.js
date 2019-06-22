@@ -1,15 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import { Jumbotron, Button } from 'reactstrap'
+import './header.css'
 
 const Header = ({toggleSaved, toggleSearch}) => {
     return (
      <>
-        <nav>
-            <h3>Goggle Books</h3>
-            <Link to="/" onClick={toggleSearch}>Search</Link> 
-            <Link to="/Saved" onClick={toggleSaved}>Saved</Link> 
-        </nav>
+        <Jumbotron className="jumbo">
+            <h1 className="display-3">Google Books</h1>
+            <Button color="primary" className="headerbtn">
+                <Link to="/" onClick={toggleSearch}>Search</Link>        
+            </Button>
+            <Button color="primary" className="headerbtn">
+                <Link to="/Saved" onClick={toggleSaved}>Saved</Link> 
+            </Button>
+        </Jumbotron>
      </>
     )
 }
