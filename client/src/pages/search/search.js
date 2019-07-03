@@ -23,7 +23,7 @@ class Search extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.search}&download=epub&key=${process.env.REACT_APP_KEY}`)
+        Axios.get(`https://www.googleapis.com/books/v1/volumes?q=${this.state.search}&download=epub&key=AIzaSyCbPutO4jNX4dyzzK9WJ-w2h06hYSMf-kg`)
         .then(({data: {items}}) => {
             let books = []
             items.forEach((item) => {
